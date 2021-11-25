@@ -1,0 +1,24 @@
+<h1>TODO LIST</h1>
+<div class="container">
+  <h2>Add ToDo List</h2>
+  <div>
+    <input type="text" #input>
+  </div><br>
+  <div *ngIf="valid === false">
+    <button  (click)="addList(input.value)" >Add List</button>
+    <button (click)="todoList()" class="space">List Remove</button>
+  </div>
+  <div *ngIf="valid === true">
+    <button  (click)="addList(input.value)" >Add List</button>
+    <button (click)="todoList()" class="space">List Remove</button>
+  </div>
+</div>
+<div *ngIf="toDoList.length>0">
+  <div *ngFor="let item of toDoList;let index = index;">
+    <div class="new-container">
+      <li>{{ toDoList[index] }}<span>
+        <button (click)="removeList(index)" class="space additionalstyle">Remove</button>
+      </span></li>
+    </div>
+  </div>
+</div>
